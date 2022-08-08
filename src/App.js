@@ -5,7 +5,10 @@ import { useState } from "react";
 import Chat from "./Chat";
 
 //We pass the URL of our server we are running our socket on, inside the connect() method
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://livechatbot-app.herokuapp.com/", {
+  // Need to add this when application is deployed for the sockets to work!
+  transports: ["websocket"],
+});
 
 function App() {
   const [username, setUsername] = useState("");
